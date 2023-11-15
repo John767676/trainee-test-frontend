@@ -1,0 +1,35 @@
+
+.main__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    letter-spacing: 0.25px;
+}
+
+.main__user-img {
+    border-radius: 50%;
+    margin-right: 30px;
+    width: 150px;
+    height: 150px;
+}
+
+.main__user-name-container {
+    display: flex;
+    align-items: center;
+}
+
+.main__user-name {
+    padding-right: 10px;
+    font-size: 24px;
+}
+
+.main__user-tag {
+    color: rgba(68, 65, 65, 0.49);
+}
+
+.main__user-job {
+    padding-top: 10px;
+    text-transform: capitalize;
+    font-size: 16px;
+    color: rgba(68, 65, 65, 0.49);
+}
