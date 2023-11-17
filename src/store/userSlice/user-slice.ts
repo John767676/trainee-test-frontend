@@ -1,6 +1,7 @@
-import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {IItmes, IUser} from "./user-types";
 import axios from "axios";
+
 
 const initialState: IItmes = {
     items: [],
@@ -33,6 +34,7 @@ export const userSlice = createSlice({
             .addCase(getUsers.fulfilled, (state, action) => {
                 state.items = action.payload
                 state.isLoading = false
+                localStorage.setItem('items', JSON.stringify(action.payload))
             })
             .addCase(getUsers.rejected, (state, action) => {
                 state.isLoading = false

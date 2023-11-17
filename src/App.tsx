@@ -1,23 +1,26 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
-import {getUsers} from "./store/userSlice/user-slice";
-import {useAppDispatch} from "./hooks/useAppDispatch";
 import {useAppSelector} from "./hooks/useAppSelector";
+import Modal from "./components/Modal/Modal";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import DetailPage from "./pages/DetailPage/DetailPage";
 
 function App() {
 
-    const dispatch = useAppDispatch()
-    const {filter} = useAppSelector(state => state.filter)
+    const {isOpen} = useAppSelector(state => state.filter)
 
-    useEffect(() => {
-        dispatch(getUsers(filter))
-    }, [filter])
+    {document.body.style.overflow=isOpen ? 'hidden' : ''}
 
     return (
     <div className="App">
-        <Header />
-        <Main />
+        <BrowserRouter>
+            <Routes>
+                <Route path='/' element={<><Header/><Main/></>}/>
+                <Route path='/:id' element={<DetailPage/>}/>
+            </Routes>
+        </BrowserRouter>
+        {isOpen && <Modal/>}
     </div>
     );
 }

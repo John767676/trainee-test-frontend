@@ -26,6 +26,7 @@
     flex: 24;
     padding-left: 30px;
     font-size: 22px;
+    caret-color: purple;
 }
 
 .header__input-field::placeholder {
@@ -35,6 +36,7 @@
 .header__menu {
     flex: 1;
     padding-right: 10px;
+    cursor: pointer;
 }
 
 .header__filters {

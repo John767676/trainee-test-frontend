@@ -4,6 +4,7 @@
     align-items: center;
     margin-bottom: 15px;
     letter-spacing: 0.25px;
+    width: 95vw;
 }
 
 .main__user-img {
@@ -32,4 +33,9 @@
     text-transform: capitalize;
     font-size: 16px;
     color: rgba(68, 65, 65, 0.49);
+}
+
+.main__user-birthdate {
+    color: rgb(161, 157, 157);
+    margin-left: auto;
 }

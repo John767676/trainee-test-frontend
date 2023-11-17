@@ -3,7 +3,9 @@ import {IFilterTypes} from "./filter-types";
 
 const initialState: IFilterTypes = {
     filter: 'all',
-    filterSearch: ''
+    filterSearch: '',
+    filterMenu: 'alphabet',
+    isOpen: false
 }
 
 const filterSlice = createSlice({
@@ -15,9 +17,15 @@ const filterSlice = createSlice({
         },
         setFilterSearch(state,action: PayloadAction<string>) {
             state.filterSearch = action.payload
+        },
+        setFilterMenuOpen(state) {
+            state.isOpen = !state.isOpen
+        },
+        setFilterMenu(state,action: PayloadAction<string>) {
+            state.filterMenu = action.payload
         }
     }
 })
 
 export const filterReducer = filterSlice.reducer
-export const {setFilter, setFilterSearch} = filterSlice.actions
+export const {setFilter, setFilterSearch, setFilterMenuOpen, setFilterMenu} = filterSlice.actions

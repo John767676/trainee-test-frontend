@@ -2,7 +2,7 @@
 export interface IItmes {
     items: IUser[],
     isLoading: boolean,
-    error: string
+    error: string,
 }
 
 export interface IUser {
