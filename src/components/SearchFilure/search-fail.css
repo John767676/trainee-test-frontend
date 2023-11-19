@@ -1,0 +1,29 @@
+.search-failure__wrapper {
+    transform: translate(50%, 50%);
+}
+
+.search-failure__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 17px;
+    letter-spacing: 0.25px;
+}
+
+.search-failure__img {
+    width: 110px;
+    height: 110px;
+}
+
+
+.search-failure__lower-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+.search-failure__try-again-btn {
+    font-size: 1.5rem;
+    color: #A4A4A8;
+}

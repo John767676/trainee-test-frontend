@@ -1,0 +1,38 @@
+.error__wrapper {
+    transform: translate(50%, 50%);
+}
+
+.error__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 17px;
+    letter-spacing: 0.25px;
+}
+
+.error__img {
+    width: 110px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.error__upper-title {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.error__lower-title {
+    font-size: 22px;
+    color: #A4A4A8;
+}
+
+.error__try-again {
+    cursor: pointer;
+}
+
+.error__try-again-btn {
+    font-weight: bold;
+    font-size: 22px;
+    color: #6534FF;
+}

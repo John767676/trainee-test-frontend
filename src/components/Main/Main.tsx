@@ -4,6 +4,9 @@ import MainItem from "../MainItem/MainItem";
 import './main.css'
 import {getUsers} from "../../store/userSlice/user-slice";
 import {useAppDispatch} from "../../hooks/useAppDispatch";
+import SkeletonItem from "../Skeleton/SkeletonItem";
+import ErrorPage from "../../pages/ErrorPage/ErrorPage";
+import SearchFail from "../SearchFilure/SearchFail";
 
 const Main:React.FC = () => {
 
@@ -41,16 +44,17 @@ const Main:React.FC = () => {
 
     return (
         <main className='main'>
-            {isLoading && <h1>Loading...</h1>}
-            {error && <h1>{error}</h1>}
-            <div className="main__wrapper">
-                {filterItems ? (
-                    filterItems.map(item => (
-                        <MainItem data={item} key={item.id} />
-                    ))
-                ) : null
-                }
-            </div>
+            {error && <ErrorPage/>}
+            {isLoading ? <SkeletonItem count={6}/> :
+                (filterItems.length === 0) ? <SearchFail/> :
+                    <div className="main__wrapper">
+                        {
+                            filterItems.map(item => (
+                                <MainItem data={item} key={item.id}/>
+                            ))
+                        }
+                    </div>
+            }
         </main>
     );
 };

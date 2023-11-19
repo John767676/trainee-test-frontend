@@ -5,6 +5,7 @@ import {useAppSelector} from "./hooks/useAppSelector";
 import Modal from "./components/Modal/Modal";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import DetailPage from "./pages/DetailPage/DetailPage";
+import ErrorFind from "./pages/ErrorFind/ErrorFind";
 
 function App() {
 
@@ -13,15 +14,16 @@ function App() {
     {document.body.style.overflow=isOpen ? 'hidden' : ''}
 
     return (
-    <div className="App">
-        <BrowserRouter>
-            <Routes>
-                <Route path='/' element={<><Header/><Main/></>}/>
-                <Route path='/:id' element={<DetailPage/>}/>
-            </Routes>
-        </BrowserRouter>
-        {isOpen && <Modal/>}
-    </div>
+        <div className="App">
+            <BrowserRouter>
+                <Routes>
+                    {/*<Route path='*' element={<ErrorFind/>} />*/}
+                    <Route path='/' element={<><Header/><Main/></>}/>
+                    <Route path='/:id' element={<DetailPage/>} errorElement={<ErrorFind/>}/>
+                </Routes>
+            </BrowserRouter>
+            {isOpen && <Modal/>}
+        </div>
     );
 }
 

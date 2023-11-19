@@ -9,7 +9,7 @@ import {useAppSelector} from "../../hooks/useAppSelector";
 const Header:React.FC = () => {
 
     const dispatch = useAppDispatch()
-    const {filter} = useAppSelector(state => state.filter)
+    const {filter, filterMenu} = useAppSelector(state => state.filter)
 
     interface NavBarTypes {
         title: string,
@@ -54,8 +54,10 @@ const Header:React.FC = () => {
                     <input className='header__input-field' type='search' name='search' placeholder='Введите имя, тег, почту...' autoComplete={'off'}
                     onChange={(e) => dispatch(setFilterSearch(e.target.value))}
                     />
-                    <BiMenuAltRight className='header__menu' size='35px' color='rgb(161, 157, 157)'
-                    onClick={() => dispatch(setFilterMenuOpen())}
+                    <BiMenuAltRight
+                        className='header__menu' size='35px' color='rgb(161, 157, 157)'
+                        onClick={() => dispatch(setFilterMenuOpen())}
+                        style={filterMenu === 'birthday' ? {color: 'purple'} : undefined}
                     />
                 </div>
                 <div className="header__filters">

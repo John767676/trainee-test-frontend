@@ -2,18 +2,25 @@ import React from 'react';
 import { IoIosArrowBack } from "react-icons/io";
 import { CiStar } from "react-icons/ci";
 import { FiPhone } from "react-icons/fi";
-import {Link, useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import './detail-page.css'
 import {IUser} from "../../store/userSlice/user-types";
+import ErrorFind from "../ErrorFind/ErrorFind";
 
 
 const DetailPage: React.FC = () => {
 
     const {id} = useParams()
     const items: IUser[] = JSON.parse(localStorage.getItem('items') || '')
+    const navigate = useNavigate()
 
     const item = items.find(item => item.id === id)
-    const {position,avatarUrl,lastName,firstName,phone,userTag,birthday} = item!
+
+    if (item === undefined) {
+        return <ErrorFind/>
+    }
+
+    const {position,avatarUrl,lastName,firstName,phone,userTag,birthday} = item
 
     const phoneNumber = phone.substr(0,2)+' ('+ phone.substr(2,3)+') '+ phone.substr(5,3) + ' '+ phone.substr(8,2)+ ' ' + phone.substr(10,2)
     const date = birthday.substring(8,11) + '/' + birthday.substring(5,7) + '/' + birthday.substring(0,4)
@@ -21,11 +28,9 @@ const DetailPage: React.FC = () => {
     return (
         <div className='detail__wrapper'>
             <div className="detail__upper-section">
-                <Link to={'/'}>
-                    <div className="detail__back">
+                    <div className="detail__back" onClick={() => navigate(-1)}>
                         <IoIosArrowBack size='50px' className='detail__back-btn'/>
                     </div>
-                </Link>
                 <div className="detail__upper-content">
                     <img src={avatarUrl} alt='user-picture' className='detail__img'/>
                     <div className="detail__name-container">

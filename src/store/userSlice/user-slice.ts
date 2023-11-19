@@ -16,7 +16,7 @@ export const getUsers = createAsyncThunk<IUser[], string, {rejectValue: string}>
             const res = await axios.get(`https://stoplight.io/mocks/kode-frontend-team/koder-stoplight/86566464/users?__example=${filterName}`)
             return res.data.items
         } catch (e) {
-            return rejectWithValue('Какой то сверхразум все сломал\n Постараемся быстро починить')
+            return rejectWithValue('critical-error')
         }
     }
 )

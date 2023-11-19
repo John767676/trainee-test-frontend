@@ -1,0 +1,22 @@
+.skeleton__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 95vw;
+}
+
+
+.skeleton__user-name-container {
+    display: flex;
+    align-items: center;
+}
+
+.skeleton__user-name {
+    padding-left: 30px;
+}
+
+
+.skeleton__user-job {
+    padding: 10px 0 0 30px ;
+}
+

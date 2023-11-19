@@ -1,0 +1,43 @@
+.error-find__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.error-find__img {
+    height: 50vh;
+    width: 60vh;
+    transform: translateY(20%);
+}
+
+.error-find__title {
+    font-size: 1.5rem;
+    color: #A4A4A8;
+}
+
+.error-find__btn {
+    font-size: 1.5rem;
+    background-color: #6534FF;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    padding: 10px 50px;
+    border-radius: 15px;
+    letter-spacing: 1px;
+}
+
+/*@media screen and (max-width: 376px) {*/
+/*    .error-find__img {*/
+/*        height: 20vh;*/
+/*        width: 30vh;*/
+/*        transform: translateY(20%);*/
+/*    }*/
+/*    .error-find__title {*/
+/*        font-size: 1.4rem;*/
+/*    }*/
+/*    .error-find__container {*/
+/*        gap: 30px*/
+/*    }*/
+/*}*/
