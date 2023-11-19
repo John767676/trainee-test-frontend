@@ -27,17 +27,3 @@
     border-radius: 15px;
     letter-spacing: 1px;
 }
-
-/*@media screen and (max-width: 376px) {*/
-/*    .error-find__img {*/
-/*        height: 20vh;*/
-/*        width: 30vh;*/
-/*        transform: translateY(20%);*/
-/*    }*/
-/*    .error-find__title {*/
-/*        font-size: 1.4rem;*/
-/*    }*/
-/*    .error-find__container {*/
-/*        gap: 30px*/
-/*    }*/
-/*}*/

@@ -5,11 +5,16 @@ import './header.css'
 import {useAppDispatch} from "../../hooks/useAppDispatch";
 import {setFilter, setFilterSearch, setFilterMenuOpen} from "../../store/filterSlice/filter-slice";
 import {useAppSelector} from "../../hooks/useAppSelector";
+import {useDebouncedCallback} from "use-debounce";
 
 const Header:React.FC = () => {
 
     const dispatch = useAppDispatch()
     const {filter, filterMenu} = useAppSelector(state => state.filter)
+
+    const debounceOnChange = useDebouncedCallback(args => (
+        dispatch(setFilterSearch(args))
+    ),300)
 
     interface NavBarTypes {
         title: string,
@@ -52,7 +57,7 @@ const Header:React.FC = () => {
                 <div className="header__input">
                     <BsSearch className='header__search' size='35px' color={'rgb(161, 157, 157'}/>
                     <input className='header__input-field' type='search' name='search' placeholder='Введите имя, тег, почту...' autoComplete={'off'}
-                    onChange={(e) => dispatch(setFilterSearch(e.target.value))}
+                    onChange={e => debounceOnChange(e.target.value)}
                     />
                     <BiMenuAltRight
                         className='header__menu' size='35px' color='rgb(161, 157, 157)'
