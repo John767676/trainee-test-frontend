@@ -5,7 +5,7 @@ import axios from "axios";
 
 const initialState: IItmes = {
     items: [],
-    isLoading: false,
+    isLoading: true,
     error: ''
 }
 

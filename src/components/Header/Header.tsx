@@ -14,7 +14,7 @@ const Header:React.FC = () => {
 
     const debounceOnChange = useDebouncedCallback(args => (
         dispatch(setFilterSearch(args))
-    ),300)
+    ),400)
 
     interface NavBarTypes {
         title: string,
@@ -67,10 +67,12 @@ const Header:React.FC = () => {
                 </div>
                 <div className="header__filters">
                     {navBar.map(el => (
-                        <p key={el.filterType} onClick={
-                            () => dispatch(setFilter(el.filterType))} style={el.filterType === filter ?
+                        <p key={el.filterType}
+                            onClick={() => dispatch(setFilter(el.filterType))}
+                            style={el.filterType === filter ?
                             ({borderBottom: '2px solid purple', fontWeight: 'bold', color: 'black', marginBottom: '-31px'}) :
-                            undefined}>{el.title}
+                            undefined}>
+                            {el.title}
                         </p>
                     ))}
                 </div>
